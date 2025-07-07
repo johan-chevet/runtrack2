@@ -7,13 +7,13 @@ function getTableRow($name, $value): string {
 
 $str = "Contenu de la variable";
 $int = 42;
-$float = 3.14;
-$bool = false;
+$pi = 3.14;
+$bool = true;
 $table = "<table><tr><th>type</th><th>nom</th><th>valeur</th></tr>";
 $table .= getTableRow("str", $str);
 $table .= getTableRow( "int", $int);
 $table .= getTableRow( "float", $float);
-$table .= getTableRow( "bool", $bool ? "true" : "false");
+$table .= getTableRow( "bool", $bool);
 $table .= "</table>";
 
 echo $table;
