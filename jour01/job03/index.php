@@ -1,6 +1,6 @@
 <?php
 
-function getTableRow($name, $value) {
+function getTableRow($name, $value): string {
     $type = gettype($value);
     return "<tr><td>$type</td><td>$name</td><td>$value</td></tr>";
 }
