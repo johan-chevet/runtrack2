@@ -1,28 +1,6 @@
 <?php
-function makeTriangle($hauteur) {
-  $triangle = [];
-  for ($i = 0; $i < $hauteur; $i++) {
-    $line = "";
-    for ($j = 0; $j < $hauteur * 2 -1; $j++) {
-      if ($j === $hauteur - $i -1) {
-        $line .= "/";
-      }
-      if ($j === $hauteur + $i -1) {
-        $line .= "\\";
-      }
-      else if ($i === $hauteur -1) {
-        $line .= "_";
-      }
-      else {
-        $line .= " ";
-      }
-  }
-    $triangle[] = $line;
-  }
-  return $triangle;
-}
 $hauteur = 15;
-$array = makeTriangle($hauteur);
+$br = "<br>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,10 +11,25 @@ $array = makeTriangle($hauteur);
   </head>
   <body>
     <main>
-      <?php foreach ($array as $val): ?>
-        <?= $val ?>
-        <br>
-      <?php endforeach; ?>
+      <?php
+        for ($i = 0; $i < $hauteur; $i++) {
+          for ($j = 0; $j < $hauteur * 2 -1; $j++) {
+            if ($j === $hauteur - $i -1) {
+              echo "/";
+            }
+            if ($j === $hauteur + $i -1) {
+              echo "\\";
+            }
+            else if ($i === $hauteur -1) {
+              echo "_";
+            }
+            else {
+              echo " ";
+            }
+          }
+          echo $br;
+        }
+      ?>
     </main>
   </body>
 </html>
