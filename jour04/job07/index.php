@@ -3,12 +3,12 @@
 function printRoof($largeur, $hauteur) {
     for($i = 0; $i < $hauteur; $i++) {
         for ($j = 0; $j < $largeur; $j++) {
-            if ($j == ($largeur / 2) - $i - 1) {
+            if ($j == $largeur / 2 - $i - 1) {
                 echo "/";
-            } else if ($j == ($largeur / 2) + $i) {
+            } else if ($j == $largeur / 2 + $i) {
                 echo "\\<br>";
                 break;
-            } else if ($j > ($largeur / 2) - $i - 1 && $j < ($largeur / 2) + $i) {
+            } else if ($j > $largeur / 2 - $i - 1 && $j < $largeur / 2 + $i) {
                 echo "_";
             } else {
                 echo " ";

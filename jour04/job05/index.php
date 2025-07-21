@@ -1,6 +1,6 @@
 <?php
-if (count($_POST) > 0) {
-    if ($_POST["username"] == "John" && $_POST["password"] == "Rambo") {
+if (isset($_POST["username"]) && isset($_POST["password"])) {
+    if ($_POST["username"] === "John" && $_POST["password"] === "Rambo") {
         echo "C'est pas ma guerre";
     } else {
         echo "Votre pire cauchemar";
@@ -18,8 +18,10 @@ if (count($_POST) > 0) {
     <body>
         <main>
             <form action="./index.php" method="post">
-                <input type="text" name="username">
-                <input type="password" name="password">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
                 <input type="submit">
             </form>
         </main>
