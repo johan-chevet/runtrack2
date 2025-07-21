@@ -32,11 +32,9 @@ function cesar($str, $decalage = 2) {
 function plateforme($str) {
     $len = strlen($str);
     for ($i = 0; $i < $len; $i++) {
+        echo $str[$i];
         if ($str[$i] === "e" && $str[$i - 1] === "m" && ($i + 1 === $len || $str[$i + 1] === " ")) {
-            echo $str[$i];
             echo "_";
-        } else {
-            echo $str[$i];
         }
     }
 }

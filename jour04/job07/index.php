@@ -1,7 +1,8 @@
 <?php
 
-function printRoof($largeur, $hauteur) {
-    for($i = 0; $i < $hauteur; $i++) {
+function printRoof($largeur) {
+    $height = $largeur / 2;
+    for($i = 0; $i < $height; $i++) {
         for ($j = 0; $j < $largeur; $j++) {
             if ($j == $largeur / 2 - $i - 1) {
                 echo "/";
@@ -16,6 +17,7 @@ function printRoof($largeur, $hauteur) {
         }
     }
 }
+
 function printWall($largeur, $hauteur) {
     for($i = 0; $i < $hauteur; $i++) {
         for ($j = 0; $j < $largeur; $j++) {
@@ -31,15 +33,16 @@ function printWall($largeur, $hauteur) {
         }
     }
 }
+
 $largeur = 0;
 $hauteur = 0;
-if (isset($_POST["largeur"]) && isset($_POST["hauteur"])) {
+if (isset($_GET["largeur"]) && isset($_GET["hauteur"])) {
     // Check if value is an integer
     // If hauteur * 2 != largeur == bad display
-    if (filter_var($_POST["largeur"], FILTER_VALIDATE_INT) &&
-    filter_var($_POST["hauteur"], FILTER_VALIDATE_INT)) {
-        $hauteur = $_POST["hauteur"];
-        $largeur = $_POST["largeur"];
+    if (filter_var($_GET["largeur"], FILTER_VALIDATE_INT) &&
+    filter_var($_GET["hauteur"], FILTER_VALIDATE_INT)) {
+        $hauteur = $_GET["hauteur"];
+        $largeur = $_GET["largeur"];
     }
 }
 ?>
@@ -52,7 +55,7 @@ if (isset($_POST["largeur"]) && isset($_POST["hauteur"])) {
     </head>
     <body>
         <main>
-            <form action="./index.php" method="post">
+            <form action="./index.php" method="get">
                 <label for="largeur">Largeur</label>
                 <input type="text" name="largeur" id="largeur">
                 <label for="hauteur">Hauteur</label>
@@ -60,8 +63,9 @@ if (isset($_POST["largeur"]) && isset($_POST["hauteur"])) {
                 <input type="submit">
             </form>
             <div>
+                <br>
                 <?php if ($largeur && $hauteur) {
-                    printRoof($largeur, $hauteur);
+                    printRoof($largeur);
                     printWall($largeur, $hauteur);
                 }?>
             </div>
