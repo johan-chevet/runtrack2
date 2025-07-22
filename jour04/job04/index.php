@@ -25,8 +25,8 @@
                 <tbody>
                     <?php foreach ($_POST as $argument => $value): ?>
                         <tr>
-                            <td><?= $argument ?></td>
-                            <td><?= $value ?></td>
+                            <td><?= htmlspecialchars($argument) ?></td>
+                            <td><?= htmlspecialchars($value) ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

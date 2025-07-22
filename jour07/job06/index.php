@@ -31,5 +31,5 @@ function leetSpeak($str) {
     }
     return $str;
 }
-echo leetSpeak("lEet Speak");
+echo htmlspecialchars(leetSpeak("lEet Speak"));
 ?>
