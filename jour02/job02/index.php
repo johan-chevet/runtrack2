@@ -1,5 +1,6 @@
 <?php
-$array = [26, 37, 88, 1111, 3233]
+$array = [26, 37, 88, 1111, 3233];
+$inArray = false;
 ?>
 
 <!DOCTYPE html>
@@ -11,12 +12,19 @@ $array = [26, 37, 88, 1111, 3233]
   </head>
   <body>
     <main>
-        <?php for( $i = 0; $i <= 1337; $i++ ): ?>
-          <?php if (!in_array($i, $array)): ?>
-            <?= $i ?>
-            <br>
-          <?php endif; ?>
-        <?php endfor; ?>
+      <?php for( $i = 0; $i <= 1337; $i++ ) {
+        $inArray = false;
+        foreach( $array as $value ) {
+            if ($value == $i) {
+              $inArray = true;
+            }
+        }
+        if ($inArray) {
+          continue;
+        }
+        echo (string)$i . "<br/>";
+      }
+      ?>
     </main>
   </body>
 </html>
