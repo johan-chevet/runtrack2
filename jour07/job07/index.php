@@ -1,5 +1,4 @@
 <?php
-
 function mystrlen($str) {
     $i = 0;
     while (isset($str[$i])) {
@@ -31,13 +30,16 @@ function getCharIndex($char, $str) {
 //     return false;
 // }
 function gras($str) {
-    for ($i = 0; $i < mystrlen($str); $i++) {
-        if ($i == 0 && isUpper($str[$i])) {
-            echo "<b>$str[$i]</b>";
-        } else if (isUpper($str[$i]) && $str[$i - 1] === " ") {
-            echo "<b>$str[$i]</b>";
-        } else {
-            echo $str[$i];
+    $brToClose = false;
+    $len = mystrlen($str);
+    for ($i = 0; $i < $len; $i++) {
+        if (isUpper($str[$i]) && ($i === 0 || $str[$i - 1] === " ")) {
+            echo "<b>";
+            $brToClose = true;
+        }
+        echo $str[$i];
+        if ($brToClose && (!isset($str[$i + 1]) || $str[$i + 1] === " ")) {
+            echo "</b>";
         }
     }
 }
@@ -60,17 +62,16 @@ function cesar($str, $decalage = 2) {
     // }
     $lower_alphabet = "abcdefghijklmnopqrstuvwxyz";
     $upper_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    $alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     $len = mystrlen($str);
     for ($i = 0; $i < $len; $i++) {
-        $res = getCharIndex($str[$i], $alpha);
-        if ($res === false) {
-            echo $str[$i];
-        }
-        else if (isUpper($str[$i])) {
-           echo $upper_alphabet[($res + $decalage) % 26];
+        if ($str[$i] >= "A" && $str[$i] <= "Z") {
+            $res = getCharIndex($str[$i], $upper_alphabet);
+            echo $upper_alphabet[($res + $decalage) % 26];
+        } else if ($str[$i] >= "a" && $str[$i] <= "z") {
+            $res = getCharIndex($str[$i], $lower_alphabet);
+            echo $lower_alphabet[($res + $decalage) % 26];
         } else {
-           echo $lower_alphabet[($res + $decalage) % 26];
+            echo $str[$i];
         }
     }
 }
