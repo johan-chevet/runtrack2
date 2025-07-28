@@ -63,12 +63,12 @@ if (isset($_POST["input"]) && $_SESSION["gameOver"] === false) {
         $gameOver = isGameOver();
         if ($gameOver === 1) {
             $_SESSION["gameOver"] = true;
+            $winnerMessage = ($_SESSION["turn"] % 2 == 0 ? "X" : "O") . " a gagné";
             resetGame();
-            $winnerMessage = ($_SESSION["turn"] % 2 == 0 ? "O" : "X") . " a gagné";
         } else if ($gameOver === 2) {
             $_SESSION["gameOver"] = true;
-            resetGame();
             $winnerMessage = "Match nul";
+            resetGame();
         }
 
     }

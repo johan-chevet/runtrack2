@@ -12,17 +12,17 @@ td {
 }
 
 .tile {
-  all: unset;
-  background-color: aqua;
+  /* all: unset;
+  background-color: aqua; */
   font-size: 90px;
   width: 100%;
   height: 100%;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
-.tile:hover {
+/* .tile:hover {
   background-color: red;
 }
 .tile:active {
   background-color: green;
-}
+} */
