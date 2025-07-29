@@ -1,0 +1,1 @@
+SELECT * FROM etudiants AS e WHERE TIMESTAMPDIFF(year, e.naissance, NOW()) < 18;
