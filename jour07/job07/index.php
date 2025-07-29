@@ -1,21 +1,24 @@
 <?php
-function mystrlen($str) {
+function mystrlen($str)
+{
     $i = 0;
     while (isset($str[$i])) {
         $i++;
     }
     return $i;
 }
-function isUpper($char) {
+function isUpper($char)
+{
     if ($char >= "A" && $char <= "Z") {
         return true;
     }
     return false;
 }
 
-function getCharIndex($char, $str) {
+function getCharIndex($char, $str)
+{
     $len = mystrlen($str);
-    for ($i = 0; $i < $len; $i++ ) {
+    for ($i = 0; $i < $len; $i++) {
         if ($str[$i] === $char)
             return $i;
     }
@@ -29,7 +32,8 @@ function getCharIndex($char, $str) {
 //     }
 //     return false;
 // }
-function gras($str) {
+function gras($str)
+{
     $brToClose = false;
     $len = mystrlen($str);
     for ($i = 0; $i < $len; $i++) {
@@ -44,7 +48,8 @@ function gras($str) {
     }
 }
 
-function cesar($str, $decalage = 2) {
+function cesar($str, $decalage = 2)
+{
     // for ($i = 0; $i < mystrlen($str); $i++) {
     //     if (ord($str[$i]) >= 65 && ord($str[$i]) <= 90) {
     //         $newValue = ord($str[$i]) + $decalage;
@@ -64,7 +69,7 @@ function cesar($str, $decalage = 2) {
     $upper_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     $len = mystrlen($str);
     for ($i = 0; $i < $len; $i++) {
-        if ($str[$i] >= "A" && $str[$i] <= "Z") {
+        if (isUpper($str[$i])) {
             $res = getCharIndex($str[$i], $upper_alphabet);
             echo $upper_alphabet[($res + $decalage) % 26];
         } else if ($str[$i] >= "a" && $str[$i] <= "z") {
@@ -76,7 +81,8 @@ function cesar($str, $decalage = 2) {
     }
 }
 
-function plateforme($str) {
+function plateforme($str)
+{
     $len = mystrlen($str);
     for ($i = 0; $i < $len; $i++) {
         echo $str[$i];
@@ -88,34 +94,37 @@ function plateforme($str) {
 ?>
 
 <html lang="eng">
-    <head>
-        <meta charset="UTF-8">
-        <title>Job07</title>
-    </head>
-    <body>
-        <form method="post">
-            <label for="str">Str:</label>
-            <input type="text" name="str" id="str">
-            <label for="fonction">Transform to:</label>
-            <select name="fonction" id="fonction">
-                <option selected>gras</option>
-                <option>cesar</option>
-                <option>plateforme</option>
-            </select>
-            <button type="submit">submit</button>
-        </form>
-        <?php
-        if (isset($_POST["str"]) && isset($_POST["fonction"])){
-            $str = $_POST["str"];
-            $fonction = $_POST["fonction"];
-            if ($fonction === "gras") {
-                gras($str);
-            } else if ($fonction === "cesar") {
-                cesar($str);
-            } else if ($fonction === "plateforme") {
-                plateforme($str);
-            }
+
+<head>
+    <meta charset="UTF-8">
+    <title>Job07</title>
+</head>
+
+<body>
+    <form method="post">
+        <label for="str">Str:</label>
+        <input type="text" name="str" id="str">
+        <label for="fonction">Transform to:</label>
+        <select name="fonction" id="fonction">
+            <option selected>gras</option>
+            <option>cesar</option>
+            <option>plateforme</option>
+        </select>
+        <button type="submit">submit</button>
+    </form>
+    <?php
+    if (isset($_POST["str"]) && isset($_POST["fonction"])) {
+        $str = $_POST["str"];
+        $fonction = $_POST["fonction"];
+        if ($fonction === "gras") {
+            gras($str);
+        } else if ($fonction === "cesar") {
+            cesar($str);
+        } else if ($fonction === "plateforme") {
+            plateforme($str);
         }
-        ?>
-    </body>
+    }
+    ?>
+</body>
+
 </html>

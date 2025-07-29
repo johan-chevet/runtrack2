@@ -1,6 +1,6 @@
 <?php
-function getHello() {
+function getHello()
+{
     return "Hello LaPlateforme!";
 }
 echo getHello();
-?>

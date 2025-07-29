@@ -1,5 +1,6 @@
 <?php
-function leetSpeak($str) {
+function leetSpeak($str)
+{
     $len = strlen($str);
     for ($i = 0; $i < $len; $i++) {
 
@@ -32,4 +33,3 @@ function leetSpeak($str) {
     return $str;
 }
 echo htmlspecialchars(leetSpeak("lEet Speak"));
-?>

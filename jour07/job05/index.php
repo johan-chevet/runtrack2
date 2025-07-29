@@ -1,5 +1,6 @@
 <?php
-function occurence($str, $char) {
+function occurence($str, $char)
+{
     $count = 0;
     $len = strlen($str);
     for ($i = 0; $i < $len; $i++) {
@@ -10,4 +11,3 @@ function occurence($str, $char) {
     return $count;
 }
 echo occurence("Bonjour", "o");
-?>

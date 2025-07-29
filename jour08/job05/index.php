@@ -51,9 +51,11 @@ if (!isset($_SESSION["grid"]) || !isset($_SESSION["turn"]) || isset($_POST["rese
 
 if (isset($_POST["input"]) && $_SESSION["gameOver"] === false) {
     $pos = explode("-", $_POST["input"]);
-    if (isset($pos[0]) && isset($pos[1]) &&
+    if (
+        isset($pos[0]) && isset($pos[1]) &&
         is_numeric($pos[0]) && is_numeric($pos[1]) &&
-        $_SESSION["grid"][$pos[0]][$pos[1]] == "-") {
+        $_SESSION["grid"][$pos[0]][$pos[1]] == "-"
+    ) {
         if ($_SESSION["turn"] % 2 == 0) {
             $_SESSION["grid"][$pos[0]][$pos[1]] = "0";
         } else {
@@ -70,40 +72,42 @@ if (isset($_POST["input"]) && $_SESSION["gameOver"] === false) {
             $winnerMessage = "Match nul";
             resetGame();
         }
-
     }
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Job05</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<form method="post">
-    <table>
-        <tbody>
-        <?php for ($i = 0; $i < 3; $i++): ?>
-            <tr>
-                <?php for ($j = 0; $j < 3; $j++): ?>
-                    <td>
-                        <button class="tile" type="submit" name="input"
-                                value=<?= "$i-$j" ?>><?= getTileLabel($i, $j) ?></button>
-                    </td>
+    <form method="post">
+        <table>
+            <tbody>
+                <?php for ($i = 0; $i < 3; $i++): ?>
+                    <tr>
+                        <?php for ($j = 0; $j < 3; $j++): ?>
+                            <td>
+                                <button class="tile" type="submit" name="input"
+                                    value=<?= "$i-$j" ?>><?= getTileLabel($i, $j) ?></button>
+                            </td>
+                        <?php endfor; ?>
+                    </tr>
                 <?php endfor; ?>
-            </tr>
-        <?php endfor; ?>
-        </tbody>
-    </table>
-</form>
-<form method="post">
-    <button type="submit" name="reset">Réinitialiser la partie</button>
-</form>
-<?php if (isset($winnerMessage)): ?>
-    <p><?=$winnerMessage?></p>
-<?php endif; ?>
+            </tbody>
+        </table>
+    </form>
+    <form method="post">
+        <button type="submit" name="reset">Réinitialiser la partie</button>
+    </form>
+    <?php if (isset($winnerMessage)): ?>
+        <p><?= $winnerMessage ?></p>
+    <?php endif; ?>
 </body>
+
 </html>

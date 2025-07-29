@@ -1,16 +1,16 @@
 <?php
+$br = "<br>";
 $str = "LaPlateforme";
-echo $str . "\n";
+echo $str . $br;
 $str2 = "Vive";
 $str3 = "!";
-echo $str2 . " " . $str . " " . $str3 . "\n";
+echo $str2 . " " . $str . " " . $str3 . $br;
 
 $val = 6;
-echo $val . "\n";
+echo $val . $br;
 $val += 4;
-echo $val . "\n";
+echo $val . $br;
 $myBool = true;
-echo $myBool . "\n";
+echo $myBool . $br;
 $myBool = false;
-echo $myBool . "\n";
-?>
+echo $myBool . $br;
