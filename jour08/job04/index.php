@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (isset($_POST["prenom"]) && strlen($_POST["prenom"])) {
     $_COOKIE["login"] = $_POST["prenom"];
 }
