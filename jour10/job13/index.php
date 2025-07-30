@@ -5,7 +5,7 @@ if ($mysqli->connect_errno) {
     exit(1);
 }
 try {
-    $query = $mysqli->query("select sum(capacite) as capacite_totale from salles");
+    $query = $mysqli->query("select s.nom as 'Nom de la salle', e.nom as 'Nom de l\'etage' from salles s left join etage e on s.id_etage=e.id");
 } catch (mysqli_sql_exception $e) {
     echo "query error: " . $e->getMessage();
     die();

@@ -5,7 +5,7 @@ if ($mysqli->connect_errno) {
     exit(1);
 }
 try {
-    $query = $mysqli->query("select sum(capacite) as capacite_totale from salles");
+    $query = $mysqli->query("select * from salles order by capacite asc");
 } catch (mysqli_sql_exception $e) {
     echo "query error: " . $e->getMessage();
     die();
