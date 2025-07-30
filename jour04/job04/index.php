@@ -1,3 +1,7 @@
+<?php
+$fields = ["test1", "test2", "test3", "test4"];
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -25,11 +29,13 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($_POST as $argument => $value): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($argument) ?></td>
-                        <td><?= htmlspecialchars($value) ?></td>
-                    </tr>
+                <?php foreach ($fields as $field): ?>
+                    <?php if (isset($_POST[$field]) && $_POST[$field] != ""): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($field) ?></td>
+                            <td><?= htmlspecialchars($_POST[$field]) ?></td>
+                        </tr>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </tbody>
         </table>

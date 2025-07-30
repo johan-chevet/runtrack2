@@ -1,5 +1,12 @@
 <?php
-echo "Le nombre d’argument POST envoyé est : " . count($_POST);
+$fields = ["test1", "test2", "test3", "test4"];
+$count = 0;
+foreach ($fields as $field) {
+    if (isset($_POST[$field]) && $_POST[$field] != "") {
+        $count++;
+    }
+}
+echo "Le nombre d’argument POST envoyé est : $count";
 ?>
 
 <!DOCTYPE html>
