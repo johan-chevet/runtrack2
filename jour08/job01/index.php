@@ -10,14 +10,17 @@ if (isset($_POST["reset"])) {
 ?>
 
 <html lang="eng">
-    <head>
-        <meta charset="UTF-8">
-        <title>Job01</title>
-    </head>
-    <body>
-        <?= "nombre de visites: " . $_SESSION["nbvisites"] ?>
-        <form method="post">
-            <button type="submit" name="reset" >Reset</button>
-        </form>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Job01</title>
+</head>
+
+<body>
+    <?= "nombre de visites: " . $_SESSION["nbvisites"] ?>
+    <form method="post">
+        <button type="submit" name="reset">Reset</button>
+    </form>
+</body>
+
 </html>

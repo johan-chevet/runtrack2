@@ -9,16 +9,19 @@ if (!isset($_COOKIE["nbvisites"]) || isset($_POST["reset"])) {
 ?>
 
 <html lang="eng">
-    <head>
-        <meta charset="UTF-8">
-        <title>Job02</title>
-    </head>
-    <body>
-        <?php
-            echo "nombre de visites: $nbvisites";
-        ?>
-        <form method="post">
-            <button type="submit" name="reset" >Reset</button>
-        </form>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Job02</title>
+</head>
+
+<body>
+    <?php
+    echo "nombre de visites: $nbvisites";
+    ?>
+    <form method="post">
+        <button type="submit" name="reset">Reset</button>
+    </form>
+</body>
+
 </html>
