@@ -16,9 +16,6 @@ function resetGame()
 }
 function isGameOver(): int
 {
-    if ($_SESSION["turn"] == 10) {
-        return 2;
-    }
     $grid = $_SESSION["grid"];
     for ($i = 0; $i < 3; $i++) {
         // Check row
@@ -40,6 +37,11 @@ function isGameOver(): int
     if ($grid[0][2] != "-" && $grid[0][2] === $grid[1][1] && $grid[1][1] === $grid[2][0]) {
         return 1;
     }
+
+    if ($_SESSION["turn"] == 10) {
+        return 2;
+    }
+
     return 0;
 }
 

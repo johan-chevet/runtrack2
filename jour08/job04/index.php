@@ -3,7 +3,6 @@ if (isset($_COOKIE["login"])) {
     $login = $_COOKIE["login"];
 }
 if (isset($_POST["prenom"]) && strlen($_POST["prenom"])) {
-    // $_COOKIE["login"] = $_POST["prenom"];
     setcookie("login", $_POST["prenom"]);
     $login = $_POST["prenom"];
 }

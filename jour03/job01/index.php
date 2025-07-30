@@ -1,5 +1,5 @@
 <?php
-$numbers = [200, 204, 173, 98, 171, 404, 459.]
+$numbers = [200, 204, 173, 98, 171, 404, 459]
 ?>
 <!DOCTYPE html>
 <html lang="en">
