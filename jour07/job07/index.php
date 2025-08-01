@@ -24,14 +24,8 @@ function getCharIndex($char, $str)
     }
     return false;
 }
-// function inString($char, $string) {
-//     for ($i = 0; $i < mystrlen($string); $i++) {
-//         if ($string[$i] == $char) {
-//             return $i;
-//         }
-//     }
-//     return false;
-// }
+
+
 function gras($str)
 {
     $brToClose = false;
@@ -50,21 +44,6 @@ function gras($str)
 
 function cesar($str, $decalage = 2)
 {
-    // for ($i = 0; $i < mystrlen($str); $i++) {
-    //     if (ord($str[$i]) >= 65 && ord($str[$i]) <= 90) {
-    //         $newValue = ord($str[$i]) + $decalage;
-    //         if ($newValue > 90) {
-    //             $newValue = $newValue % 91 + 65;
-    //         }
-    //         echo chr($newValue);
-    //     } else if (ord($str[$i]) >= 97 && ord($str[$i]) <= 122) {
-    //         $newValue = ord($str[$i]) + $decalage;
-    //         if ($newValue > 122) {
-    //             $newValue = $newValue % 123 + 97;
-    //         }
-    //         echo chr($newValue);
-    //     }
-    // }
     $lower_alphabet = "abcdefghijklmnopqrstuvwxyz";
     $upper_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     $len = mystrlen($str);

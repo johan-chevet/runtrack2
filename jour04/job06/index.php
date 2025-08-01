@@ -1,10 +1,11 @@
 <?php
 if (isset($_GET["nombre"])) {
-    $value = $_GET["nombre"];
+    // $value = $_GET["nombre"];
+    $value = (int)$_GET["nombre"];
     // Check if value is an integer
-    if (filter_var($value, FILTER_VALIDATE_INT) !== false) {
-        echo "Nombre " . ($value % 2 == 0 ? "pair" : "impair");
-    }
+    // if (filter_var($value, FILTER_VALIDATE_INT) !== false) {
+    echo "Nombre " . ($value % 2 == 0 ? "pair" : "impair");
+    // }
 }
 ?>
 <!DOCTYPE html>

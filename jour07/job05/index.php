@@ -2,8 +2,7 @@
 function occurence($str, $char)
 {
     $count = 0;
-    $len = strlen($str);
-    for ($i = 0; $i < $len; $i++) {
+    for ($i = 0; $str[$i]; $i++) {
         if ($str[$i] == $char) {
             $count++;
         }

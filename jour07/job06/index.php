@@ -1,29 +1,28 @@
 <?php
 function leetSpeak($str)
 {
-    $len = strlen($str);
-    for ($i = 0; $i < $len; $i++) {
+    for ($i = 0; $str[$i]; $i++) {
 
-        switch (strtolower($str[$i])) {
-            case "a":
+        switch ($str[$i]) {
+            case "A":
                 $str[$i] = "4";
                 break;
-            case "b":
+            case "B":
                 $str[$i] = "8";
                 break;
-            case "e":
+            case "E":
                 $str[$i] = "3";
                 break;
-            case "g":
+            case "G":
                 $str[$i] = "6";
                 break;
-            case "l":
+            case "L":
                 $str[$i] = "1";
                 break;
-            case "s":
+            case "S":
                 $str[$i] = "5";
                 break;
-            case "t":
+            case "T":
                 $str[$i] = "7";
                 break;
             default:
@@ -32,4 +31,4 @@ function leetSpeak($str)
     }
     return $str;
 }
-echo htmlspecialchars(leetSpeak("lEet Speak"));
+echo leetSpeak("lEet Speak");

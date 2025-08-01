@@ -39,13 +39,13 @@ function printWall($largeur, $hauteur)
 $largeur = 0;
 $hauteur = 0;
 if (isset($_GET["largeur"]) && isset($_GET["hauteur"])) {
-    if (
-        filter_var($_GET["largeur"], FILTER_VALIDATE_INT) &&
-        filter_var($_GET["hauteur"], FILTER_VALIDATE_INT)
-    ) {
-        $hauteur = $_GET["hauteur"];
-        $largeur = $_GET["largeur"];
-    }
+    // if (
+    //     filter_var($_GET["largeur"], FILTER_VALIDATE_INT) &&
+    //     filter_var($_GET["hauteur"], FILTER_VALIDATE_INT)
+    // ) {
+    $hauteur = (int)$_GET["hauteur"];
+    $largeur = (int)$_GET["largeur"];
+    // }
 }
 ?>
 <!DOCTYPE html>

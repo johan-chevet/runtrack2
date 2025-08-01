@@ -1,12 +1,42 @@
 <?php
+function myStrlen($str)
+{
+  $len = 0;
+  while (isset($str[$len])) {
+    $len++;
+  }
+  return $len;
+}
+
+function myInArray($array, $toFind)
+{
+  $len = myStrlen($array);
+  for ($i = 0; $i < $len; $i++) {
+    if ($toFind === $array[$i]) {
+      return $i;
+    }
+  }
+  return false;
+}
+
+function myTolower($c)
+{
+  $lower = "abcdefghijklmnopqrstuvwxyz";
+  if ($c >= "A" && $c <= "Z") {
+    return $lower[myInArray("ABCDEFGHIJKLMNOPQRSTUVWXYZ", $c) % 26];
+  }
+  return $c;
+}
+
 $str = "On n'est pas le meilleur quand on le croit mais quand on le sait";
 $dic = [
   "consonnes" => 0,
   "voyelles" => 0,
 ];
 $vowel = ["a", "e", "i", "o", "u", "y"];
-for ($i = 0; $i < strlen($str); $i++) {
-  if (in_array(strtolower($str[$i]), $vowel)) {
+$len = myStrlen($str);
+for ($i = 0; $i < $len; $i++) {
+  if (myInArray($vowel, myTolower($str[$i])) !== false) {
     $dic["voyelles"]++;
   } else {
     $dic["consonnes"]++;

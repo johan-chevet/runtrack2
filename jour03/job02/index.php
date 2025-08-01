@@ -13,7 +13,11 @@ $str = "Tous ces instants seront perdus dans le temps comme les larmes sous la p
 <body>
   <main>
     <?php
-    for ($i = 0; $i < strlen($str); $i++) {
+    $len = 0;
+    while (isset($str[$len])) {
+      $len++;
+    }
+    for ($i = 0; $i < $len; $i++) {
       if ($i % 2 === 0) {
         echo $str[$i];
       }
